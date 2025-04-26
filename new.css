@@ -5,7 +5,10 @@
 }
 body{
     direction: rtl;
-    
+    background-image: url(https://www.monginisbakery.com/images/banner/a0f0b677-541c-42b4-8e6b-9d8549c74b48.png);
+    background-repeat: repeat;
+    background-size: contain;
+    font-family: system-ui;
 }
   
 h1,h2,h3,h6{
@@ -123,22 +126,33 @@ footer .ftbigdiv2 div span{
     color: #6F3C2E;
     font-weight: bold;
 }
+/* //////////////////////////////////////////////////////HERO////////////////////////////////// */
 .hero-section{
     padding: 50px 0;
     overflow: hidden;
     
+    
 }
-.img1 img,.img2 img,.img3 img,.img4 img,.img5 img,.img6 img{
+.h2-Hero
+{
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 30px;
+}
+.img1>img,.img2>img,.img3>img,.img4>img,.img5>img,.img6>img{
     width: 200px;
-    margin: 0 100px ;
+    margin: 0 75px 50px;
 }
-.img1,.img2,.img3,.img4,.img5,.img6{
+.img1,.img2,.img3,.img4,.img5,.img6
+{
 height: 400px;
 width: 400px;
-background-color:rgb(253 248 242);
+background-color:rgba(250, 235, 215, 0.326);
 border-radius: 20px;
+transition: .3s;
 
 }
+
 .main-card{
     margin: 0 auto;
     height: 20%;
@@ -148,7 +162,46 @@ border-radius: 20px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    animation: mov 30s linear 0s infinite alternate ;
+    animation: mov 30s linear -2.5s infinite alternate ;
+}
+.main-card>div:hover
+{
+    transform: translateY(-20px);
+    background-color:rgba(250, 235, 215, 0.806);
+
+}
+.main-card:hover
+{
+    animation-play-state: paused;
+
+}
+.main-card h3,.main-card p
+{
+    text-align: center;
+} 
+
+.main-card h3
+{
+    padding-bottom: 20px;
+}
+.main-card p
+{
+    padding: 10px 0px 20px;
+    font-size: 18px;
+    font-weight: bold
+}
+.link-card
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 10px;
+}
+.link-card a img
+{
+    width: 30px;
 }
 
 @keyframes mov{
@@ -159,6 +212,7 @@ border-radius: 20px;
         transform: translateX(-4000px);
     }
 }
+/* ////////////////////////////////////////////////////////////////////// */
 /* Large Screens */
 @media (min-width:1200px) {
 .navbar{
