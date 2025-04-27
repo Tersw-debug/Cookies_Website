@@ -69,10 +69,10 @@ nav{
 /* /////////////////////////////////////////////////////WHY///////////////////////////////////////////////////// */
 .why
 {
-    background: rgba(250, 235, 215, 0.526);
     padding: 50px 0px;
     position: relative;
     bottom: 4px;
+    background-image: linear-gradient(#dccdb8, #ffffff00);
 }
 .why h2
 {
