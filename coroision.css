@@ -11,7 +11,7 @@ body{
     font-family: system-ui;
 }
 header{
-    position:fixed;
+    position:sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
@@ -71,6 +71,7 @@ nav{
     background: #fcf4eab8;
     margin: 10px auto;
     padding: 5px;
+    border-radius: 20px;
 }
 .path img{
     width: 25px;
@@ -89,7 +90,7 @@ nav{
     justify-content: flex-start;
     gap: 150px;
     margin: auto;
-    width: 1200px;
+    width: 75%;
     margin-bottom: 40px;
 }
 .img-adv{
@@ -161,7 +162,7 @@ nav{
 }
 /* ///////////////////////////////////////////description/////////////////////////////// */
 .desc{
-    width: 1200px;
+    width: 75%;
     margin: auto;
 }
 .elwasf{
