@@ -39,7 +39,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 210px;
+    padding: 10px 210px;
     backdrop-filter: blur(4px);
 }
 .ul-nav{
