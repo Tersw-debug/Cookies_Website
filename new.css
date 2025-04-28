@@ -11,7 +11,7 @@ body{
     font-family: system-ui;
 }
 header{
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
@@ -69,10 +69,10 @@ nav{
 /* /////////////////////////////////////////////////////WHY///////////////////////////////////////////////////// */
 .why
 {
+    background: rgba(250, 235, 215, 0.526);
     padding: 50px 0px;
     position: relative;
     bottom: 4px;
-    background-image: linear-gradient(#dccdb8, #ffffff00);
 }
 .why h2
 {
@@ -160,6 +160,63 @@ nav{
     color: #6F3C2E;
     font-weight: bold;
 }
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.Test{
+    padding: 50px 0px 60px;
+}
+.text-Test{
+    text-align: center;
+}
+.text-Test h2{
+    text-align: center;
+    padding: 51px 0px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.content-Test{
+    display: grid;
+    grid-template-columns: 600px 600px;
+    justify-content: center;
+    gap: 50px;
+}
+.content-cardTest{
+    padding: 20px;
+    background: #fdf5ec;
+    border-radius: 30px;
+    transition: .4s;
+}
+.content-cardTest:hover
+{
+    filter: drop-shadow(2px 4px 8px black);
+    transform: translateY(-25px);
+}
+.intro-card-Test{
+    display: flex
+;
+    align-items: center;
+    margin: 20px 0px;
+    gap: 20px;
+}
+
+.intro-card-Test img{
+    width: 60px;
+    margin-right: 20px;
+}
+.link-Test{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.link-Testa1{
+    width: 100px;
+}
+.link-Testa2{
+    width: 35px;
+}
+
+
+
 /* /////////////////////////////////////////////////////////about//////////////////////////////////// */
 .about-sec{
     display: flex;
