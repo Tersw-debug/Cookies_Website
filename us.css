@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     direction: rtl;
     background-image: url(https://www.monginisbakery.com/images/banner/a0f0b677-541c-42b4-8e6b-9d8549c74b48.png);
@@ -92,7 +95,7 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 100px 0px;
+    margin: 300px 0px;
 }
 .achieves>div>p{
     text-align: center;
@@ -109,7 +112,7 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin:100px 0px  ;
+    margin:300px 0px  ;
 
 }
 .trip-img img{
@@ -135,7 +138,7 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: 300px auto;
 }
 .div-our-work{
     display: flex;
@@ -152,7 +155,7 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin:100px 0px  ;
+    margin:300px 0px  ;
 }
 .photos img{
     width: 500px;
@@ -194,6 +197,37 @@ nav{
 
 }
 .ending{
+    margin: 300px 0px;
+}
+#contact{
+    margin: 300px 0px;
+}
+#contact .ele{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 100px 0px;
+        text-align: center;
+}
+#contact .ele p{
+    font-size: 30px;
+    font-weight: bold;
+    color: #423c33;
+    margin: 20px 0px;
+}
+#contact .ele img{
+    width: 100px;
+}
+#contact h2{
+    text-align: center;
+    font-size: 30px;
+
+}
+#contact a{
+    font-size: 20px;
+    font-weight: 600;
+}
+#contact{
     margin: 130px 0px;
 }
 
