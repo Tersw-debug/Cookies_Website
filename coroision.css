@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     direction: rtl;
     background-image: url(https://www.monginisbakery.com/images/banner/a0f0b677-541c-42b4-8e6b-9d8549c74b48.png);
