@@ -34,8 +34,8 @@ if(form){
             else{
                 sessionStorage.setItem("username", JSON.stringify(username.value));
                 sessionStorage.setItem("password", JSON.stringify(password.value));
-                sessionStorage.setItem("email", JSON.stringify(email.value));
-                sessionStorage.setItem("phone", JSON.stringify(phone.value));
+                sessionStorage.setItem("email", JSON.stringify(email?.value));
+                sessionStorage.setItem("phone", JSON.stringify(phone?.value));
                 sessionStorage.setItem("formSubmitted", "true");
                 window.location.assign("index.html");
             }
