@@ -58,11 +58,26 @@
 
     <main>
 
-        <section class="welcome" id="welcome">
-            <img src="photos/openart-image_U2Wkggs6_1745748318181cut_raw.png">
+        <section class="welcome">
+                <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="photos/img1.png" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="photos/img3.png" style="width:100%">
+                </div>
+        
+                
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        <br>
+        <div class="dots" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
         </section>
-
-
         <section class="why">
             <h2>ليه تشتري من عندنا؟</h2>
             <div class="content-why">
@@ -351,7 +366,45 @@
             const menu = document.getElementById("popupMenu");
             menu.style.display = menu.style.display === "none" ? "block" : "none";
         }
+                let slideIndex = 1;
+        showSlides(slideIndex);
 
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        } 
+        let sliideIndex = 0;
+        shoowSlides(); 
+        function shoowSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            sliideIndex++;
+            if (sliideIndex > slides.length) {sliideIndex = 1}
+            slides[sliideIndex-1].style.display = "block";
+            setTimeout(shoowSlides, 5000);
+        }
     </script>
     <script src="script.js"></script>
 </body>
