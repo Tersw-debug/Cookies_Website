@@ -5,7 +5,7 @@ let username = document.getElementById("input_name");
 let password = document.getElementById("input_password");
 let email = document.getElementById("input_email");
 let phone = document.getElementById("input_phone");
-
+let profile = document.getElementById("profile");
 if(form){
     form.addEventListener("submit",
         function(event){
@@ -42,9 +42,13 @@ if(form){
         }
     );
 }
+if(profile){
+    profile.hidden = true;
+}
 document.addEventListener("DOMContentLoaded", function(e) {
     if(sessionStorage.getItem("formSubmitted") === "true") {
         document.getElementById("hiddenElement1").hidden = true;
         document.getElementById("hiddenElement2").hidden = true;
+        profile.hidden = false;
     }
   });
