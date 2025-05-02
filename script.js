@@ -63,7 +63,7 @@ if(h2_username){
         }
         else{
             span_passwrod.innerHTML = "*".repeat(width) + " :Password";
-            show_password.innerHTML = "Show";
+            show_password.innerHTML = "اخفاء";
         }
     });
     if(sessionStorage.getItem("email") != 'undefined'){
