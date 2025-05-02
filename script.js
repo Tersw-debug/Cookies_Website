@@ -6,6 +6,12 @@ let password = document.getElementById("input_password");
 let email = document.getElementById("input_email");
 let phone = document.getElementById("input_phone");
 let profile = document.getElementById("profile");
+let h2_username = document.getElementById("h2_username");
+let span_username = document.getElementById("span_username");
+let span_phone = document.getElementById("span_phone");
+let span_gmail = document.getElementById("span_gmail");
+let span_passwrod = document.getElementById("span_password");
+const show_password = document.getElementById("show_password");
 if(form){
     form.addEventListener("submit",
         function(event){
@@ -33,7 +39,7 @@ if(form){
             }
             else{
                 sessionStorage.setItem("username", JSON.stringify(username.value));
-                sessionStorage.setItem("password", JSON.stringify(password.value));
+                sessionStorage.setItem("password", JSON.stringify(password.value)); 
                 sessionStorage.setItem("email", JSON.stringify(email?.value));
                 sessionStorage.setItem("phone", JSON.stringify(phone?.value));
                 sessionStorage.setItem("formSubmitted", "true");
@@ -45,10 +51,40 @@ if(form){
 if(profile){
     profile.hidden = true;
 }
+if(h2_username){
+    h2_username.innerHTML = (JSON.parse(sessionStorage.getItem("username"))).charAt(0).toUpperCase() + (JSON.parse(sessionStorage.getItem("username"))).slice(1);
+    span_username.innerHTML = (JSON.parse(sessionStorage.getItem("username"))).charAt(0).toUpperCase() + (JSON.parse(sessionStorage.getItem("username"))).slice(1);
+    let width = (JSON.parse(sessionStorage.getItem("password"))).length;
+    span_passwrod.innerHTML = "*".repeat(width) + " :Password";
+    show_password.addEventListener("click", function() {
+        if(show_password.innerHTML == "Show"){
+        span_passwrod.innerHTML = "Password: " + (JSON.parse(sessionStorage.getItem("password")));
+        show_password.innerHTML = "Hide";
+        }
+        else{
+            span_passwrod.innerHTML = "*".repeat(width) + " :Password";
+            show_password.innerHTML = "Show";
+        }
+    });
+    if(sessionStorage.getItem("email") != 'undefined'){
+        span_gmail.innerHTML = JSON.parse(sessionStorage.getItem("email"));
+        span_phone.innerHTML = JSON.parse(sessionStorage.getItem("phone"));
+    }
+    else{
+        span_gmail.innerHTML = "Email: Secured";
+        span_phone.innerHTML = "Phone: Secured";
+    }
+
+}
+
+
+
 document.addEventListener("DOMContentLoaded", function(e) {
     if(sessionStorage.getItem("formSubmitted") === "true") {
-        document.getElementById("hiddenElement1").hidden = true;
-        document.getElementById("hiddenElement2").hidden = true;
-        profile.hidden = false;
+        if(document.getElementById("hiddenElement1")){
+            document.getElementById("hiddenElement1").hidden = true;
+            document.getElementById("hiddenElement2").hidden = true;
+            profile.hidden = false;
+        }
     }
   });
