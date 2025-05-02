@@ -131,6 +131,30 @@ nav{
 .dashbord{
     margin: 50px 100px;
 }
+.show_password{
+    background-color: #6F3C2E;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    padding: 8px 15px;
+    border: #6F3C2E 2px solid;
+    border-radius: 20px;
+    transition: 0.2 ease;
+}
+.show_password:hover{
+    transform: scale(1.1);
+    background-color: transparent;
+    color: #6F3C2E;
+    font-weight: bold;
+}
+
+
 .empty p{
     font-weight: 500;
     font-size: 14px;
