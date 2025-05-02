@@ -12,14 +12,8 @@ body{
     background-repeat: repeat;
     background-size: contain;
     font-family: system-ui;
-    
 }
-header{
-    position:sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-}
+
 h1,h2,h3,h6{
     color: #6F3C2E
 }
@@ -39,12 +33,11 @@ a:hover{
     width: 100px;
 }
 nav{
-    background-color: rgba(250, 235, 215, 0.488);;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 210px;
-    backdrop-filter: blur(4px);
+    padding: 10px 210px;
 }
 .ul-nav{
     display: flex;
@@ -63,7 +56,7 @@ nav{
 }
 .nav-icons img:hover{
     transform: scale(1.2);
-    box-shadow: -1px 1px 2px black;
+    box-shadow: -1px 1px 2px;
 }
 /* /////////////////////////////////////contact//////////////////////////////////////////////// */
 .cont
