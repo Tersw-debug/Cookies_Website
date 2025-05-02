@@ -57,13 +57,13 @@ if(h2_username){
     let width = (JSON.parse(sessionStorage.getItem("password"))).length;
     span_passwrod.innerHTML = "*".repeat(width) + " :Password";
     show_password.addEventListener("click", function() {
-        if(show_password.innerHTML == "Show"){
+        if(show_password.innerHTML == "ظهور"){
         span_passwrod.innerHTML = "Password: " + (JSON.parse(sessionStorage.getItem("password")));
-        show_password.innerHTML = "Hide";
+        show_password.innerHTML = "اخفاء";
         }
         else{
             span_passwrod.innerHTML = "*".repeat(width) + " :Password";
-            show_password.innerHTML = "اخفاء";
+            show_password.innerHTML = "ظهور";
         }
     });
     if(sessionStorage.getItem("email") != 'undefined'){
