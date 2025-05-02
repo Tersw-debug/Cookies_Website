@@ -29,14 +29,18 @@ ul{
 }
 .to-top-btn{
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: 15px;
+    left: 20px;
     z-index: 100;
     transition: 0.1s ease;
+    
+}
+.to-top-btn img{
+    width: 50px;
 }
 .to-top-btn:hover{
     transform: scale(1.1);
-    filter: grayscale(100px);
+    filter:hue-rotate(-34deg);
 }
 a{
     text-decoration: none;
