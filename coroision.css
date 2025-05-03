@@ -13,6 +13,8 @@ body{
     background-size: contain;
     font-family: system-ui;
 }
+body::selection{
+    background-color:bisque;}
 header{
     position:sticky;
     top: 0;

@@ -13,7 +13,8 @@ body{
     background-size: contain;
     font-family: system-ui;
 }
-
+body::selection{
+    background-color:bisque;}
 h1,h2,h3,h6{
     color: #6F3C2E
 }

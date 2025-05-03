@@ -205,6 +205,8 @@ nav{
     filter: drop-shadow(2px 4px 8px black);
     transform: translateY(-25px);
 }
+body::selection{
+    background-color:bisque;}
 .pure{
     display: flex;
     align-items: center;
