@@ -160,14 +160,14 @@ function renderFavorites(){
     const favorites = getFavorits();
     const wrapper = document.getElementById("favoritesTableWrapper");
     const emptyMessage = document.getElementById("emptyMsg");
-    if(favorites.length === 0){
+    if(favorites?.length === 0 || favorites == null){
         wrapper.style.display = "none";
         emptyMessage.style.display = "block";
         return;
     }
     wrapper.style.display = "block";
     emptyMessage.style.display = "none";
-    favorites.forEach((item, index) => {
+    favorites?.forEach((item, index) => {
         const row = document.createElement("tr");
         let temp = ``;
         temp += `
