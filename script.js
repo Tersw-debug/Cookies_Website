@@ -12,6 +12,7 @@ let span_phone = document.getElementById("span_phone");
 let span_gmail = document.getElementById("span_gmail");
 let span_passwrod = document.getElementById("span_password");
 const show_password = document.getElementById("show_password");
+const tbody = document.getElementById("favoritesBody");
 if(form){
     form.addEventListener("submit",
         function(event){
@@ -88,3 +89,103 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }
     }
   });
+const listCarts = {};
+const arrSaved = [];
+function addFavorits(productName,price)
+{
+    if(sessionStorage.getItem("favorites") != null && JSON.parse(sessionStorage.getItem("favorites")).length != 0){
+        let check = JSON.parse(sessionStorage.getItem("favorites"));
+        for(let arr in check){
+            if(check[arr].name == productName){
+                alert("This item is already in your favorites.");
+                break;
+            }
+            else{
+                listCarts.name = productName;
+                listCarts.price = price;
+                check.push(listCarts);
+                sessionStorage.setItem("favorites", JSON.stringify(check));
+            }
+        }
+    }
+    else{
+        listCarts.name = productName;
+        listCarts.price = price;
+        arrSaved.push(listCarts);
+        sessionStorage.setItem("favorites", JSON.stringify(arrSaved));
+    }
+}
+
+
+function getFavorits(){
+    return JSON.parse(sessionStorage.getItem("favorites"));
+}
+
+function saveFavorites(favorites){
+    sessionStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
+function removeFavorits(index){
+    if(confirm("Are you sure you want to remove this item?")){
+        const favorites = getFavorits();
+        if(favorites){
+            favorites.splice(index, 1);
+            saveFavorites(favorites);
+            renderFavorites();
+            location.reload();
+            alert("Item removed from favorites.");
+        }
+    }
+}
+
+function rateItem(index, rating){
+    const favorites = getFavorits();
+    if(favorites){
+        favorites[index].rating = rating;
+        saveFavorites(favorites);
+        location.reload();
+        renderFavorites();
+    }
+}
+function generateStars(rating, index){
+    let stars = '';
+    for(let i = 1; i <= 5; i++){
+        stars += `<span class="star" onclick="rateItem(${index}, ${i})">${i <= rating ? "★" : "☆"}</span>`;
+    }
+    return stars;
+}
+
+
+function renderFavorites(){
+    const favorites = getFavorits();
+    const wrapper = document.getElementById("favoritesTableWrapper");
+    const emptyMessage = document.getElementById("emptyMsg");
+    if(favorites.length === 0){
+        wrapper.style.display = "none";
+        emptyMessage.style.display = "block";
+        return;
+    }
+    wrapper.style.display = "block";
+    emptyMessage.style.display = "none";
+    favorites.forEach((item, index) => {
+        const row = document.createElement("tr");
+        let temp = ``;
+        temp += `
+             <td>${item.name}</td>
+        <td>${item.price}</td>
+
+        <td>
+          <div class="rating">
+            ${generateStars(item.rating, index)}
+          </div>
+        </td>
+        <td><button class="btn-remove" onclick="removeFavorits(${index})">إزالة</button></td>
+        <td><button class="btn-buy" onclick="buyNow('${item.name}')">شراء الآن</button></td>
+        `;
+        row.innerHTML = temp;
+        tbody.appendChild(row);
+    });
+}
+if(tbody){
+    renderFavorites();
+}
