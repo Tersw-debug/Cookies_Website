@@ -13,6 +13,7 @@ let span_gmail = document.getElementById("span_gmail");
 let span_passwrod = document.getElementById("span_password");
 const show_password = document.getElementById("show_password");
 const tbody = document.getElementById("favoritesBody");
+let ul = document.getElementById("myUL");
 if(form){
     form.addEventListener("submit",
         function(event){
@@ -188,4 +189,25 @@ function renderFavorites(){
 }
 if(tbody){
     renderFavorites();
+}
+if (ul) {
+    ul.style.display="none";
+    
+}
+function myFunction() {
+    var input,filter, li, a, i, txtValue ,main;
+    input = document.getElementById('myInput');
+    li = ul.getElementsByTagName('li');
+    filter = input.value.toUpperCase();
+    ul.style.display="block";
+    main=document.getElementById('main');
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+        } else {
+        li[i].style.display = "none";
+        }
+    }
 }

@@ -14,7 +14,7 @@ body{
     font-family: system-ui;
 }
 main{
-    height: 600px;
+    min-height: 600px;
 }
 h1,h2,h3,h6{
     color: #6F3C2E
@@ -135,6 +135,7 @@ footer
 {
     background: rgba(250, 235, 215, 0.526);
     padding: 40px 0px 0px;
+    margin-top: 30px;
 }
 footer .ftbigdiv1
 {
