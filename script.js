@@ -198,13 +198,21 @@ if(tbodyFavorite){
 }
 if(input){
     ul.style.display="none";
-    input.addEventListener("focusout", function() {
-        ul.style.display="none";
+    input.addEventListener("focusin", function(e) {
+        ul.style.display="block";
+    });
+    input.addEventListener("focusout", function(e) {
+        ul.addEventListener("mouseover", function() {
+            ul.style.display="block";
+        });
+        ul.addEventListener("mouseout", function() {
+            ul.style.display="none";
+        });
     });
 
 }
 function myFunction() {
-    var filter, li, a, i, txtValue ,main;
+    var filter, li, a, i, txtValue ;
     
     li = ul.getElementsByTagName('li');
     filter = input.value.toUpperCase();
@@ -276,7 +284,7 @@ function renderCarts(){
     }
     wrapper.style.display = "block";
     emptyMessage.style.display = "none";
-    carts?.forEach((item, index) => {
+    carts?.forEach((item) => {
         const row = document.createElement("tr");
         let temp = ``;
         temp += `
