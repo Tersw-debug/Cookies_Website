@@ -69,20 +69,27 @@ nav{
 }
 /* ////////////////////////////////////////////welcome///////////////////////////// */
 .welcome{
-    background:linear-gradient(#fbf3ea, #ffffff00);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 700px;
+    background: linear-gradient(#fbf3ea, #ffffff00);
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    height: 650px;
 }
 .welcome-text{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 99;
+    position: absolute;
+}
+video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .welcome-text p{
     color: rgb(0, 0, 0);
@@ -95,10 +102,11 @@ nav{
 }
 /* ////////////////////////////////////////////////////////achieves///////////////////////////////////// */
 .achieves{
+    background-image: linear-gradient(#f8e5c3,transparent);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 300px 0px;
+    padding-top: 80px;
 }
 .achieves>div>p{
     text-align: center;
