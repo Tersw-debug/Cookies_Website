@@ -12,7 +12,8 @@ let span_phone = document.getElementById("span_phone");
 let span_gmail = document.getElementById("span_gmail");
 let span_passwrod = document.getElementById("span_password");
 const show_password = document.getElementById("show_password");
-const tbody = document.getElementById("favoritesBody");
+const tbodyFavorite = document.getElementById("favoritesBody");
+const tbodyCarts = document.getElementById("cartBody");
 let ul = document.getElementById("myUL");
 let input = document.getElementById('myInput');
 if(form){
@@ -97,17 +98,19 @@ function addFavorits(productName,price)
 {
     if(sessionStorage.getItem("favorites") != null && JSON.parse(sessionStorage.getItem("favorites")).length != 0){
         let check = JSON.parse(sessionStorage.getItem("favorites"));
+        let found = false;
         for(let arr in check){
             if(check[arr].name == productName){
                 alert("This item is already in your favorites.");
+                found = true;
                 break;
             }
-            else{
-                listCarts.name = productName;
-                listCarts.price = price;
-                check.push(listCarts);
-                sessionStorage.setItem("favorites", JSON.stringify(check));
-            }
+        }
+        if(!found){
+            listCarts.name = productName;
+            listCarts.price = price;
+            check.push(listCarts);
+            sessionStorage.setItem("favorites", JSON.stringify(check));
         }
     }
     else{
@@ -156,7 +159,9 @@ function generateStars(rating, index){
     }
     return stars;
 }
-
+function buyNow(productName){
+    alert("You have purchased " + productName + " successfully.");
+}
 
 function renderFavorites(){
     const favorites = getFavorits();
@@ -185,10 +190,10 @@ function renderFavorites(){
         <td><button class="btn-buy" onclick="buyNow('${item.name}')">شراء الآن</button></td>
         `;
         row.innerHTML = temp;
-        tbody.appendChild(row);
+        tbodyFavorite.appendChild(row);
     });
 }
-if(tbody){
+if(tbodyFavorite){
     renderFavorites();
 }
 if(input){
@@ -214,4 +219,79 @@ function myFunction() {
         li[i].style.display = "none";
         }
     }
+}
+
+
+
+const list_Carts = {};
+const arr_SavedCarts = [];
+function addCarts(productName,price)
+{
+    if(sessionStorage.getItem("carts") != null && JSON.parse(sessionStorage.getItem("carts")).length != 0){
+        let check = JSON.parse(sessionStorage.getItem("carts"));
+        let found = false;
+        for(let arr in check){
+            if(check[arr].name == productName){
+                check[arr].quantity += 1;
+                check[arr].price += price;
+                sessionStorage.setItem("carts", JSON.stringify(check));
+                found = true;
+            }
+        }
+        if(!found){
+            list_Carts.name = productName;
+            list_Carts.price = price;
+            list_Carts.quantity = 1;
+            check.push(list_Carts);
+            sessionStorage.setItem("carts", JSON.stringify(check));
+        }
+    }
+    else{
+        list_Carts.name = productName;
+        list_Carts.price = price;
+        list_Carts.quantity =  1;
+        arr_SavedCarts.push(list_Carts);
+        sessionStorage.setItem("carts", JSON.stringify(arr_SavedCarts));
+    }
+}
+
+
+function getCarts(){
+    return JSON.parse(sessionStorage.getItem("carts"));
+}
+
+function saveCarts(carts)
+{
+    sessionStorage.setItem("carts", JSON.stringify(carts));
+}
+
+function renderCarts(){
+    const carts = getCarts();
+    const wrapper = document.getElementById("cartTableWrapper");
+    const emptyMessage = document.getElementById("emptyMsg");
+    if(carts?.length === 0 || carts == null){
+        wrapper.style.display = "none";
+        emptyMessage.style.display = "block";
+        return;
+    }
+    wrapper.style.display = "block";
+    emptyMessage.style.display = "none";
+    carts?.forEach((item, index) => {
+        const row = document.createElement("tr");
+        let temp = ``;
+        temp += `
+             <td>${item.name}</td>
+        <td>${item.price}</td>
+
+        <td>
+          ${item.quantity}
+        </td>
+
+        `;
+        row.innerHTML = temp;
+        tbodyCarts.appendChild(row);
+    });
+}
+if(tbodyCarts){
+    renderCarts();
 }
