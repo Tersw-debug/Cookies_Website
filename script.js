@@ -14,6 +14,7 @@ let span_passwrod = document.getElementById("span_password");
 const show_password = document.getElementById("show_password");
 const tbody = document.getElementById("favoritesBody");
 let ul = document.getElementById("myUL");
+let input = document.getElementById('myInput');
 if(form){
     form.addEventListener("submit",
         function(event){
@@ -190,13 +191,16 @@ function renderFavorites(){
 if(tbody){
     renderFavorites();
 }
-if (ul) {
+if(input){
     ul.style.display="none";
-    
+    input.addEventListener("focusout", function() {
+        ul.style.display="none";
+    });
+
 }
 function myFunction() {
-    var input,filter, li, a, i, txtValue ,main;
-    input = document.getElementById('myInput');
+    var filter, li, a, i, txtValue ,main;
+    
     li = ul.getElementsByTagName('li');
     filter = input.value.toUpperCase();
     ul.style.display="block";
