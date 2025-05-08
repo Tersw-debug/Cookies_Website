@@ -69,7 +69,7 @@ nav{
 }
 /* ////////////////////////////////////////////welcome///////////////////////////// */
 .welcome{
-    background: linear-gradient(#fbf3ea, #ffffff00); */
+    background: linear-gradient(#fbf3ea, #ffffff00);
     height: 600px;
     display: flex;
     flex-direction: column;
