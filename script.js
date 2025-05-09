@@ -12,10 +12,7 @@ let span_phone = document.getElementById("span_phone");
 let span_gmail = document.getElementById("span_gmail");
 let span_passwrod = document.getElementById("span_password");
 const show_password = document.getElementById("show_password");
-const tbodyFavorite = document.getElementById("favoritesBody");
-const tbodyCarts = document.getElementById("cartBody");
-let ul = document.getElementById("myUL");
-let input = document.getElementById('myInput');
+
 if(form){
     form.addEventListener("submit",
         function(event){
@@ -94,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   });
 const listCarts = {};
 const arrSaved = [];
+const tbodyFavorite = document.getElementById("favoritesBody");
 function addFavorits(productName,price)
 {
     if(sessionStorage.getItem("favorites") != null && JSON.parse(sessionStorage.getItem("favorites")).length != 0){
@@ -196,6 +194,11 @@ function renderFavorites(){
 if(tbodyFavorite){
     renderFavorites();
 }
+
+
+let ul = document.getElementById("myUL");
+let input = document.getElementById('myInput');
+
 if(input){
     ul.style.display="none";
     input.addEventListener("focusin", function(e) {
@@ -217,18 +220,17 @@ function myFunction() {
     li = ul.getElementsByTagName('li');
     filter = input.value.toUpperCase();
     ul.style.display="block";
-    main=document.getElementById('main');
     for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
+        li[i].style.display = "block";
         } else {
         li[i].style.display = "none";
         }
     }
 }
-
+const tbodyCarts = document.getElementById("cartBody");
 
 
 const list_Carts = {};
