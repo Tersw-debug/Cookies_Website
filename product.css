@@ -174,6 +174,7 @@ section .content
     padding: 10px 15px;
     border: 2px solid white;
     transition: .5s ease; 
+    cursor: pointer;
 }
 .content .card .img .messg-img>a:hover 
 {
