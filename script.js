@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             profile.hidden = false;
         }
     }
-  });
+});
 const listCarts = {};
 const arrSaved = [];
 const tbodyFavorite = document.getElementById("favoritesBody");
@@ -176,13 +176,13 @@ function renderFavorites(){
         const row = document.createElement("tr");
         let temp = ``;
         temp += `
-             <td>${item.name}</td>
+            <td>${item.name}</td>
         <td>${item.price}</td>
 
         <td>
-          <div class="rating">
+        <div class="rating">
             ${generateStars(item.rating, index)}
-          </div>
+        </div>
         </td>
         <td><button class="btn-remove" onclick="removeFavorits(${index})">إزالة</button></td>
         <td><button class="btn-buy" onclick="buyNow('${item.name}')">شراء الآن</button></td>
@@ -216,14 +216,13 @@ if(input){
 }
 function myFunction() {
     var filter, li, a, i, txtValue ;
-    
+
     li = ul.getElementsByTagName('li');
-    filter = input.value.toUpperCase();
-    ul.style.display="block";
+    filter = input.value;
     for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
         txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        if (txtValue.indexOf(filter) > -1) {
         li[i].style.display = "block";
         } else {
         li[i].style.display = "none";
@@ -290,11 +289,11 @@ function renderCarts(){
         const row = document.createElement("tr");
         let temp = ``;
         temp += `
-             <td>${item.name}</td>
+            <td>${item.name}</td>
         <td>${item.price}</td>
 
         <td>
-          ${item.quantity}
+        ${item.quantity}
         </td>
 
         `;
