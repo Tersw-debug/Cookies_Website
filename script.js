@@ -176,6 +176,7 @@ function renderFavorites(){
         const row = document.createElement("tr");
         let temp = ``;
         temp += `
+        
             <td>${item.name}</td>
         <td>${item.price}</td>
 
